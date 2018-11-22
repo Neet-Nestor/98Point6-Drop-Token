@@ -8,7 +8,7 @@ import java.util.Queue;
  * @author Nestor Qin
  */
 public class Game {
-	// The dimension of the board, use constant to change it easily if needed
+	// The dimension of the board, use constant to change it easily if needed in the future
 	public static final int DIMENSION = 4;
 	private int[][] board;
 	private int[] colSizes;
@@ -19,7 +19,7 @@ public class Game {
 	private boolean isFinished;
 	
 	/**
-	 * initial the game
+	 * initialize the game
 	 */
 	public Game() {
 		this.board = new int[DIMENSION][DIMENSION];

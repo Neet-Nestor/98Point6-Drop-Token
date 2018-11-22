@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 /**
- * The main class of this game that reads user input from STDIN and print output
- * to STDOUT
+ * The main class of this game that reads commands from STDIN and print output
+ * of the game to STDOUT
  * 
  * @author Nestor Qin
  */
@@ -12,20 +12,22 @@ public class Main {
 		Game game = new Game();
 		intro();
 		String command = console.nextLine();
+		while (command.length() == 0) {
+			// Skip empty input
+			command = console.nextLine();
+		}
 		while (!command.equals("EXIT")) {
-			while (command.length() == 0) {
-				// Skip empty input
-				command = console.nextLine();
-			}
 			String[] parts = command.split(" ");
 			if (parts[0].equals("PUT")) {
-				if (parts.length == 2) {
+				if (parts.length >= 2) {
 					try {
 						game.put(Integer.parseInt(parts[1]));
 					} catch (NumberFormatException e) {
+						// invalid column number
 						printCommands();
 					}
 				} else {
+					// no column number following put command
 					printCommands();
 				}
 			} else if (parts[0].equals("GET")) {
@@ -33,9 +35,13 @@ public class Main {
 			} else if (parts[0].equals("BOARD")) {
 				game.board();
 			} else {
+				// unknown command
 				printCommands();
 			}
-			command = console.nextLine();
+			while (command.length() == 0) {
+				// Skip empty input
+				command = console.nextLine();
+			}
 		}
 		console.close();
 	}
