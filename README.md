@@ -6,7 +6,7 @@ To Compile, enter `src` folder and type `javac Main.java`
 Then run by typing `java Main`
 
 ## Game Rule
-Drop Token takes place on a 4x4 grid. A token is dropped along a column (labeled 1-4) and said token goes to the lowest unoccupied row of the board. A player wins when they have 4 tokens next to each other either along a row, in a column, or on a diagonal. If the board is filled, and nobody has won then the game is a draw. Each player takes a turn, starting with player 1, until the game reaches either win or draw. If a player tries to put a token in a column that is already full, that results in an error state, and the player must play again until the play a valid move.
+Drop Token takes place on a nxn (default 4x4) grid. A token is dropped along a column (labeled 1-4) and said token goes to the lowest unoccupied row of the board. A player wins when they have 4 tokens next to each other either along a row, in a column, or on a diagonal. If the board is filled, and nobody has won then the game is a draw. Each player takes a turn, starting with player 1, until the game reaches either win or draw. If a player tries to put a token in a column that is already full, that results in an error state, and the player must play again until the play a valid move.
 
 ## Interface
 - `PUT` \<column\> (OK | ERROR | WIN | DRAW)
@@ -22,3 +22,5 @@ Drop Token takes place on a 4x4 grid. A token is dropped along a column (labeled
 ```
 - `EXIT` ends the program
 
+## Change Size of Board
+To change the size of the board, simply change the constant `DIMENSION` in src/Game.java and recompile Main.java
